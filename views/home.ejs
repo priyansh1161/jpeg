@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="/css/font-awesome.min.css">
+    <script src="/js/jquery-2.2.3.js"></script>
+    <script src="/js/masonry.js"></script>
+    <script src="/js/imagesloaded.js"></script>
+    <script src="/js/app.js"></script>
+    <title>Document</title>
+</head>
+<body data-name="<%=name%>">
+<div class="overlay">
+    <div class="overlay-close">
+        <p>X</p>
+    </div>
+    <div class="top-layer">
+        <div class="row">
+            <div class="col-sm-6 col-xs-12" style="position: relative;">
+                <div class="likes">
+                    <i class="glyphicon like-init glyphicon-heart"></i>
+                </div>
+                <div><img src="" alt="" class="img-responsive"></div>
+            </div>
+            <div class="col-sm-6 col-xs-12">
+                <input type="text" class="input-lg" placeholder="Comment" id="comm">
+                <button type="button" class="btn btn-success" id="comm-click">POST</button>
+                <button type="button" class="btn btn-primary liker"><i class="glyphicon  glyphicon-heart"></i></button>
+                <h4 class="non-center" id="likes-count"><span></span> <i class="glyphicon glyphicon-heart red"></i></h4>
+                <div class="comments">
+                </div>
+        </div>
+    </div>
+</div>
+    </div>
+<div class="">
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">PinIntrest</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#">Page 1</a></li>
+                    <li><a href="#">Page 2</a></li>
+                    <li><a href="#">Page 3</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+<div class=" cards">
+    <%for(var i=0;i<body.length;i++){%>
+        <div class="card-item" data-id="<%=body[i]._id%>" data-likes = <%=body[i].likes%>>
+            <div class="likes">
+                <%if(body[i].liked){%>
+                    <i class="glyphicon like-init red glyphicon-heart"></i>
+                <%} else{%>
+                    <i class="glyphicon like-init glyphicon-heart"></i>
+                <%}%>
+            </div>
+            <img src="<%=body[i].imgLink%>" alt="" class="img-responsive">
+            <div>
+                <h4><%=body[i].title%></h4>
+            </div>
+        </div>
+        <%}%>
+</div>
+</body>
+</html>
