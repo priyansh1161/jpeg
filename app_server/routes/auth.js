@@ -37,7 +37,7 @@ router.use('*',function (req,res,next) {
    else {
        console.log('redir');
        res.status(301);
-       res.redirect('/login');
+       res.render('landing');
    }
 });
 module.exports = router;
